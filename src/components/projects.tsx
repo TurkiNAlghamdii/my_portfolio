@@ -2,12 +2,14 @@
 
 import { ExternalLink, Github, Calendar, Code2, Loader2, AlertCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { getFeaturedProjects, type Project } from '@/lib/supabase'
 
 export function Projects() {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     async function fetchProjects() {
@@ -119,7 +121,7 @@ export function Projects() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div 
               key={project.id} 
               className="group relative bg-[#948979] dark:bg-[#393E46] rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[#393E46]/20 dark:hover:shadow-[#222831]/30 overflow-hidden transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] border border-[#393E46]/10 dark:border-[#948979]/10"
@@ -139,11 +141,17 @@ export function Projects() {
 
               {/* Image Container */}
               <div className="relative h-48 bg-gradient-to-br from-[#393E46] to-[#222831] dark:from-[#222831] dark:to-[#393E46] overflow-hidden">
-                {project.image_url ? (
-                  <img 
+                {project.image_url && !imageErrors.has(project.id) ? (
+                  <Image 
                     src={project.image_url} 
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    onError={() => {
+                      setImageErrors(prev => new Set(prev).add(project.id))
+                    }}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   />
                 ) : (
                   <>

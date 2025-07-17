@@ -1,15 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 
 // Secure resume download API route
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // The actual Supabase URL is hidden on the server side and can be stored in env vars
     const RESUME_URL = process.env.RESUME_URL || 'https://rechlvadwsjwxyhgksto.supabase.co/storage/v1/object/public/files/Turki-Naif-Alghamdi-resume.pdf'
-    
-    // Optional: Add download analytics (commented out for production)
-    // const userAgent = request.headers.get('user-agent') || 'Unknown'
-    // const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'Unknown'
-    // console.log(`Resume download - IP: ${ip}, User-Agent: ${userAgent}, Time: ${new Date().toISOString()}`)
     
     // Fetch the file from Supabase
     const response = await fetch(RESUME_URL)

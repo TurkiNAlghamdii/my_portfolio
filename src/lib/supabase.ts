@@ -51,7 +51,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
         })
       })
     })
-  } as any
+  } as unknown as ReturnType<typeof createClient>
 } else {
   supabase = createClient(supabaseUrl, supabaseAnonKey)
 }

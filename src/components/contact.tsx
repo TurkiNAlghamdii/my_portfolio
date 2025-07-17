@@ -1,6 +1,6 @@
 'use client'
 
-import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle, User, MessageSquare } from 'lucide-react'
+import { Mail, MapPin, Send, CheckCircle, AlertCircle, User, MessageSquare } from 'lucide-react'
 import { useState } from 'react'
 import { sendContactEmail, isEmailServiceAvailable } from '@/lib/email'
 
@@ -91,7 +91,7 @@ export function Contact() {
         setSubmitStatus('idle')
         setSubmitMessage('')
       }, 7000)
-    } catch (error) {
+    } catch {
       setSubmitStatus('error')
       setSubmitMessage('An unexpected error occurred. Please try again or contact me directly.')
       
@@ -137,11 +137,11 @@ export function Contact() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#DFD0B8] mb-6">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
           <p className="text-[#DFD0B8]/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Have a project in mind or just want to say hello? I'd love to hear from you. 
-            Let's create something amazing together.
+            Have a project in mind or just want to say hello? I&apos;d love to hear from you. 
+            Let&apos;s create something amazing together.
           </p>
           <div className="mt-8 w-24 h-1 bg-[#DFD0B8] mx-auto rounded-full"></div>
         </div>
@@ -203,7 +203,7 @@ export function Contact() {
           <div className="bg-[#DFD0B8] dark:bg-[#222831] rounded-2xl shadow-2xl p-8 border border-[#393E46]/10 dark:border-[#948979]/10 backdrop-blur-sm">
             <div className="mb-8">
               <h3 className="text-2xl font-semibold text-[#222831] dark:text-[#DFD0B8] mb-2">Send me a message</h3>
-              <p className="text-[#393E46] dark:text-[#948979]">I'd love to hear about your project. Tell me more!</p>
+              <p className="text-[#393E46] dark:text-[#948979]">I&apos;d love to hear about your project. Tell me more!</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">

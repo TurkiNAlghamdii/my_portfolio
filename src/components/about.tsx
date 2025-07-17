@@ -20,7 +20,7 @@ export function About() {
               I&apos;m an Information Technology graduate with a strong drive for building clean, efficient, and practical software. What began as curiosity turned into a focused pursuit of solving real-world problems through code.
             </p>
             <p className="text-[#393E46] dark:text-[#948979] leading-relaxed text-base font-normal">
-            I work across the full stack, comfortable on both frontend and backend and enjoy turning ideas into usable, reliable applications. I'm drawn to modern tools and new Technologies and frameworks and always on the lookout for projects that sharpen my skills and expand my thinking.
+            I work across the full stack, comfortable on both frontend and backend and enjoy turning ideas into usable, reliable applications. I&apos;m drawn to modern tools and new Technologies and frameworks and always on the lookout for projects that sharpen my skills and expand my thinking.
             </p>
             <div className="flex flex-wrap gap-3">
               <span className="px-4 py-2 bg-[#948979] dark:bg-[#393E46] text-[#DFD0B8] dark:text-[#DFD0B8] rounded-full text-sm font-medium">

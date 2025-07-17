@@ -66,7 +66,7 @@ export async function fetchGitHubActivity(): Promise<ActivityItem[]> {
           }
         }
       }
-    } catch (error) {
+    } catch {
       continue
     }
   }
