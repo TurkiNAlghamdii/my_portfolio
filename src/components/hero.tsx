@@ -55,7 +55,7 @@ export function Hero() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="www.linkedin.com/in/turknialghamdi"
+              href="https://www.linkedin.com/in/turknialghamdi"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-lg bg-[#393E46] dark:bg-[#948979] text-[#DFD0B8] dark:text-[#222831] hover:bg-[#222831] dark:hover:bg-[#393E46] hover:text-[#DFD0B8] dark:hover:text-[#DFD0B8] transition-all duration-200 shadow-md hover:shadow-lg"
