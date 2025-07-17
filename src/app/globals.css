@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Light mode colors using your palette */
+  --background: #DFD0B8;           /* Light cream/beige as main background */
+  --foreground: #222831;           /* Very dark blue-gray for text */
+  --background-secondary: #ffffff; /* White for cards/secondary areas */
+  --accent: #393E46;               /* Dark blue-gray for accents */
+  --muted: #948979;                /* Muted brown/taupe for secondary text */
+  --border: #948979;               /* Muted brown for borders */
+  --card: #ffffff;                 /* White for cards */
+}
+
+.dark {
+  /* Dark mode colors using your palette */
+  --background: #222831;           /* Very dark blue-gray */
+  --foreground: #DFD0B8;           /* Light cream/beige */
+  --background-secondary: #393E46; /* Dark blue-gray */
+  --accent: #948979;               /* Muted brown/taupe */
+  --muted: #948979;                /* Muted brown/taupe */
+  --border: #393E46;               /* Dark blue-gray */
+  --card: #393E46;                 /* Dark blue-gray */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #222831;
+    --foreground: #DFD0B8;
+    --background-secondary: #393E46;
+    --accent: #948979;
+    --muted: #948979;
+    --border: #393E46;
+    --card: #393E46;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
